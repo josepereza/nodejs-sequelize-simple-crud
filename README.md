@@ -1,8 +1,8 @@
 # nodejs-basico-sequelieze-api-web con materialize
 
 ![Alt text](simple1.png);
-![Alt text](simple.png);
-![Alt text](simple3.jpg);
+![Alt text](simple2.png);
+![Alt text](simple3.png);
 
 NODEJS - BASICO CON SEQUELIZE -API/WEB BASICO-  CON MATERIALIZE -IMAGEN DE FONDO 
 TODO INTEGRADO EN UN INDEX.JS.
