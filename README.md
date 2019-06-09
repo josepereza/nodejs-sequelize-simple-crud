@@ -1,10 +1,11 @@
-# nodejs-basico-materialize
+# nodejs-basico-sequelieze-api-web con materialize
 
-![Alt text](nodejs-basico-materialize.jpg);
-![Alt text](nodejs-basico-materialize2.png);
-![Alt text](node-basico-materialize3.jpg);
+![Alt text](simple1.png);
+![Alt text](simple.png);
+![Alt text](simple3.jpg);
 
-NODEJS - BASICO CON MATERIALIZE -IMAGEN DE FONDO 
+NODEJS - BASICO CON SEQUELIZE -API/WEB BASICO-  CON MATERIALIZE -IMAGEN DE FONDO 
+TODO INTEGRADO EN UN INDEX.JS.
 
 SE HA UTILIZADO:
 Diseños web: MATERIALIZE : https://materializecss.com 
