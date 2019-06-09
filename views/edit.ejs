@@ -1,0 +1,7 @@
+<form method="POST" action="/post/ <%= result.id %>?_method=PUT">
+
+    Titulo :<input type="text" name="titulo" value=" <%= result.title %>"><br><br>
+    
+    Contenido :<textarea rows="5" cols="50"  name="contenido"> <%= result.content %></textarea><br><br><br>
+    <button type="submit">Update resource</button>
+  </form>

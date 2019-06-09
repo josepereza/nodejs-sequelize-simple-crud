@@ -1,0 +1,33 @@
+#pie {
+    height: 50px;
+    width: 100%;
+    background-color:#ce93d8;
+    color: bisque;
+   
+    justify-content: center;
+    bottom: 0;
+    position: absolute;
+}
+body{
+    
+    background-image: url("../imagenes/miami.jpg");
+   
+    
+    background-position: center center;	  
+
+    background-repeat: no-repeat;
+
+  background-attachment: fixed;
+
+  background-size: cover;
+
+
+
+    
+
+    font-family: 'Abril Fatface', cursive;
+
+
+
+}
+

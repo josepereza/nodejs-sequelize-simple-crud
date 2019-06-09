@@ -1,0 +1,22 @@
+<div class="container ">
+   
+    
+        <% data[0].forEach(function(details) { %>
+            <p><strong>Id: </strong>  <%= details.id %></p>
+            <p><strong>Titulo: </strong>  <%= details.title %></p>
+            <p><strong>Autor :</strong><%= details.firstName %></p>
+            <p><strong>Contenido :</strong><%= details.content %></p>
+
+            <form method="POST" action="/post/ <%= details.id %>?_method=DELETE">
+                <button type="submit">Delete resource</button>
+              </form>
+
+              <form method="GET" action="/edit_post/ <%= details.id %>">
+                <button type="submit">Update resource</button>
+              </form>
+            <p>------------------------------------------------------------</p>  
+
+            
+            <% }) %>
+      
+<div>
