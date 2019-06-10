@@ -7,6 +7,13 @@
 NODEJS - BASICO CON SEQUELIZE -API/WEB BASICO-  CON MATERIALIZE -IMAGEN DE FONDO 
 TODO INTEGRADO EN UN INDEX.JS.
 
+Para agregar integridad referencial en mysql tenmos que agregar:
+```
+
+alter table post add  foreign key (authorId) references author (id);
+
+```
+
 SE HA UTILIZADO:
 Diseños web: MATERIALIZE : https://materializecss.com 
 Las animaciones con:  https://github.com/daneden/animate.css
