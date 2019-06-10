@@ -37,9 +37,7 @@ const Post = sequelize.define('post', {
       }
     );
   
-    Post.associate = (models) => {
-      Post.belongsTo(models.author);
-    };
+    
   
     const Author = sequelize.define('author', {
         id: {
@@ -47,7 +45,10 @@ const Post = sequelize.define('post', {
           primaryKey: true,
           autoIncrement: true
         },
-        firstName: Sequelize.STRING,
+        firstName: {
+          type:Sequelize.STRING,
+          allowNull: false
+        },
         lastName: Sequelize.STRING
       },
       {
@@ -55,10 +56,8 @@ const Post = sequelize.define('post', {
       }
     );
   
-    Author.associate = (models) => {
-      Author.hasMany(models.post);
-    };
-
+//sincronizar
+sequelize.sync();    
 
 //settings
 app.set('port', 3000);
@@ -80,7 +79,7 @@ app.get( "/posts", (req, res) =>{
 
 app.get( "/listado_posts", (req, res) =>{
     
-    sequelize.query("select post.id,post.title,post.content,author.firstName  from post inner join author  on post.authorId=author.id").then( (results) =>
+    sequelize.query("select post.id,post.title,post.content,author.firstName  from post inner join author  on post.authorId=author.id order by post.id").then( (results) =>
   {      res.render('post',{data: results});
          console.log(results);
         
@@ -100,6 +99,11 @@ app.get( "/listado_posts", (req, res) =>{
      content: req.body.contenido,
      authorId: req.body.autor
    }).then( (result) => res.json(result) )
+   .catch((error)=> {
+    console.log("ops: " + error);
+    res.status(500).json({ error: "error" });
+  })
+
  );
 
 
@@ -121,7 +125,30 @@ app.get( "/listado_posts", (req, res) =>{
         id: req.params.id
       }
     }).then( (result) => res.json(result) )
+    .catch(function(error) {
+      console.log("ops: " + error);
+      res.status(500).json({ error: "error" });
+    })
+
   );
+
+  app.post("/author", (req, res) => {
+  
+  Author.create({
+   // firstName: "jose",
+   // lastName: "martinez"
+    firstName: req.body.nombre,
+    lastName: req.body.apellido
+     
+   })
+   .then( (result) => res.json(result) )
+   .catch(error => res.json({
+    error:true,
+    data: [],
+    error: error
+}))
+
+  });
 
   app.get( "/author/:id", (req, res) =>
     Author.findByPk(req.params.id).then( (result) => res.json(result))
@@ -131,12 +158,11 @@ app.get( "/author", (req, res) =>
 );
 
 
-
 //static files
 
 app.use(express.static('public'));
 
-sequelize.sync();
+
        
  
   app.listen(8080, () => console.log("App listening on port 8080!"));
